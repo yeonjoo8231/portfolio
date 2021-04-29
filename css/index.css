@@ -1,0 +1,356 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+body { 
+    font-family: 'Noto Sans KR', sans-serif; font-weight: 100; 
+    overflow-y: hidden; overflow-x: scroll;
+}
+.row { margin: 0 auto; }
+
+#wrap {width: 100%; height: 100vh;}
+.introBG { 
+    background: url(../images/intro_bg.jpg) no-repeat center top;
+    background-size:cover;
+    height: 100%; width: 100%;
+    position: fixed; top: 0; left: 0;
+}
+#intro { 
+    perspective: 2000px; position: fixed; width: 100%; 
+}
+
+#intro .contentBG { 
+    position:absolute; width: 100%;
+    transition: all 1s;
+}
+#intro .contentBG .curtain { 
+    width:125%; height: 5%;
+    position: absolute; bottom: 102%; left: 50%;
+    transform: translateX(-50%);
+    background: #cf8c00;
+    border-bottom: 5px solid #00192f;
+}
+#intro .contentBG .curtainL { 
+    width:58%; height: 105%;
+    position: absolute; top: -2%; left: -8%;
+    background: #fac500;
+    transition: all 0.7s;
+}
+#intro .contentBG .curtainR { 
+    width:58%; height: 105%;
+    position: absolute; top: -2%; right: -8%;
+    background: #fac500;
+    transition: all 0.7s;
+}
+#intro .contentBG.on .curtainL, 
+#intro .contentBG.on .curtainR  { width:8%; }
+#intro .contentBG .light { 
+    position: absolute; right: 100%; top: 0;
+    width: 0%; height: 100%;
+    perspective: 4000px;
+    transition: all 0.7s;
+}
+#intro .contentBG .light > .lightBG { 
+    width: 100%; height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,1));
+    transform-origin: 100% 0 0;
+    transform: rotateY(45deg);
+}
+#intro .contentBG.on .light  { width: 200%;}
+#intro .contentBG .light .lightTXT { 
+    position: absolute; top: 30%; left: 55%;
+    font-size: 10em; line-height: 1.5;
+    opacity: 0; transition: all 2s;
+}
+#intro .contentBG .light .lightTXT span { font-weight: 600;}
+#intro .contentBG.on .light .lightTXT { opacity: 1;}
+#intro .contentBG > p { 
+    font-size: 8em; font-weight: 800; 
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    animation: click infinite 1s;
+}
+#intro .contentBG > p:nth-of-type(2) { 
+    opacity: 0;
+    animation: click infinite 1s 3s; 
+}
+@keyframes click {
+  from {transform: translate(-50%,-50%); opacity: 0;}
+
+  20%,
+  53%,
+  80%,
+  to {transform: translate(-50%,-50%); opacity: 1;}
+
+  40%,
+  43% {transform: translate(-50%,-80%) scaleY(1.1); opacity: 1;}
+
+  70% {transform: translate(-50%,-65%) scaleY(1.05); opacity: 1;}
+
+  90% {transform: translate(-50%,-54%) scaleY(1.02); opacity: 1;} 
+}
+
+
+/*----------------- aboutme ----------------------- */
+#content { width: 300%; height: 100%; }
+#content > .article {
+   display: inline-block;
+   position: relative; top: 0; left: 0;
+   width: 33.29%; height: 100%;
+   opacity: 0; z-index: -1;
+   transition: all 3s;
+}
+#content > .article.on { opacity: 1; z-index: 1; }
+#content > .article .imgbox1 { 
+    position: absolute;
+    top: 20%; right: 15%;
+}
+#content > .article .imgbox2 { 
+    position: absolute;
+    top: 20%; left: 25%;
+}
+#content > .article .imgbox2 .txt1 {
+    position: absolute; 
+    top: 70px; right: 50px;
+}
+
+#content > .article  h1 {
+    font-size: 24px;
+    font-weight: 900;
+}
+#content > .article h2 {
+    font-size: 18px;
+    font-weight: 700; 
+    padding-top: 25px;
+} 
+#content > .article .imgbox2 .txt1 p { 
+    padding-top: 10px;
+}
+#content > .article .imgbox2 .txt1 div:nth-of-type(1),
+#content > .article .imgbox2 .txt1 div:nth-of-type(2),
+#content > .article .imgbox2 .txt1 div:nth-of-type(3) { opacity: 0;}
+#content > .article .imgbox2.on .txt1 > div:nth-of-type(1) { animation: fadeInUp 0.5s 1s both;}
+#content > .article .imgbox2.on .txt1 > div:nth-of-type(2) { animation: fadeInUp 0.5s 1.5s both;}
+#content > .article .imgbox2.on .txt1 > div:nth-of-type(3) { animation: fadeInUp 0.5s 2s both;}
+
+#content > .article .imgbox2 img:nth-of-type(2) {
+    position: absolute;
+    top: 23%; left: 46%;
+    opacity: 0;
+}
+#content > .article .imgbox2 img:nth-of-type(3) {
+    position: absolute;
+    top: 32%; left: 40%;
+    opacity: 0;
+}
+#content > .article .imgbox2 img:nth-of-type(4) {
+    position: absolute;
+    top: 48%; left: 57%;
+    opacity: 0;
+}
+#content > .article .imgbox2.on img:nth-of-type(2) { animation: fadeInUp 0.5s 1s both; }
+#content > .article .imgbox2.on img:nth-of-type(3) { animation: fadeInUp 0.5s 1.5s both; }
+#content > .article .imgbox2.on img:nth-of-type(4) { animation: fadeInUp 0.5s 2s both; }
+
+
+/*----------------- 경력 ----------------------- */
+#content > .article .imgbox3 { 
+    position: absolute;
+    top: 20%; left: 65%;
+}
+#content > .article .imgbox4 { 
+    position: absolute;
+    top: 12%; left: 20%;
+    color: #fff;
+}
+#content > .article .imgbox4 .skill {
+    position: absolute; width: 280px;
+    top: 50px; left: 100px;
+}
+#content > .article .imgbox4 .skill h2{
+    float: left; width: 35%;
+    font-size: 16px; padding-top: 20px;
+}
+#content > .article .imgbox4 .skill .score {
+    float: right; width: 64%;
+    border: 1px solid #fff;
+    margin-top: 20px;
+}
+#content > .article .imgbox4 .skill .score  .myscore { 
+    width: 0%; height: 22px; background: #fac500;
+    font-weight: 700; text-align: right; color: #001a2d;
+}
+#content > .article .imgbox4 .license {
+    position: absolute; width: 280px;
+    top: 50px; right: 100px;
+}
+#content > .article .imgbox4 .license p {
+    padding-top: 35px; border-bottom: 1px dotted #aaa;
+    font-weight: 700;
+}
+#content > .article .imgbox4 .license p span { float: right; font-weight: 100;}
+#content > .article .imgbox4 .design {
+    position: absolute; width: 380px;
+    top: 370px; right: 100px;
+    color: #001a2d; font-weight: 900;
+    font-size: 24px; text-align: center;
+    vertical-align: middle;
+}
+#content > .article .imgbox4 .design p { 
+    width: 70px; height: 70px;
+    border: 2px solid #001a2d;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 7px;
+}
+#content > .article .imgbox4 .design p:nth-child(1),
+#content > .article .imgbox4 .design p:nth-child(2) { font-size: 36px; padding: 11px;}
+
+#content > .article .imgbox4 .design.on p:nth-child(1) { animation: both bounce 0.5s;}
+#content > .article .imgbox4 .design.on p:nth-child(2) { animation: both bounce 0.5s 0.5s;}
+#content > .article .imgbox4 .design.on p:nth-child(3) { animation: both bounce 0.5s 1s;}
+#content > .article .imgbox4 .design.on p:nth-child(4) { animation: both bounce 0.5s 1.5s;}
+
+
+
+/*----------------- 프로젝트 ----------------------- */
+#content .article .imgbox5 { 
+    position: absolute;
+    top: 25%; right: 15%;
+}
+#content .article .imgbox6 { 
+    position: absolute;
+    top: 20%; left: 15%;
+}
+#content .article .slide-group {
+    position: absolute; width: 100%; 
+    top: 0; left: 0; right: 0; bottom: 0;
+}
+#content .article .slide-group .slide { width: 100%; height: 644px; }
+#content .article .slide-group h1 {
+    position: absolute;
+    top: 45px; left: 50%; color: #fff;
+    transform: translateX(-50%);
+}
+#content .article .slide-group .img2 {
+    position: absolute;
+    top: 158px; left: 173px;
+}
+#content .article .slide-group .txt2 {
+    position: absolute;
+    width: 450px;
+    top: 200px; right: 152px;
+    background: #fff; 
+    border-radius: 15px;
+}
+#content .article .slide-group .txt2 h2 { 
+    padding: 10px 20px; border-radius: 16px 15px 0 0;
+    color: #fff; 
+    display: flex;
+    justify-content: space-between;
+}
+#content .article .slide-group .slide:nth-child(1) h2 { background: #ff887f; }
+#content .article .slide-group .slide:nth-child(2) h2 { background: #38aa75; }
+#content .article .slide-group .slide:nth-child(3) h2 { background: #8c7061; }
+#content .article .slide-group .slide:nth-child(4) h2 { background: #1aa74b; }
+#content .article .slide-group .slide:nth-child(5) h2 { background: #1aa74b; }
+#content .article .slide-group .slide:nth-child(6) h2 { background: #ff5313; }
+#content .article .slide-group .txt2 h2 > a { 
+    font-weight: 100; vertical-align: mi6dle;
+}
+#content .article .slide-group .txt2 h2 > a span { vertical-align: middle; }
+#content .article .slide-group .txt2 p { padding: 10px 20px; }
+#content .article .slide-group .slick-arrow { 
+    position: absolute; top: 45px; 
+    background: none; border: none; color: #fff;
+    font-size: 24px;
+}
+#content .article .slide-group .prev { left: 200px; }
+#content .article .slide-group .next { right: 200px; }
+#content .article .slide-group .slick-dots { 
+    position: absolute; top: 380px; right: 320px;
+}
+#content .article .slide-group .slick-dots li {
+    display: inline-block; padding: 0 3px;
+}
+#content .article .slide-group .slick-dots li button {
+    width: 10px; height: 10px; border: none;
+    border-radius: 50%; background: #fff; color: transparent;
+}
+#content .article .slide-group .slick-dots li.slick-active > button { background: #fac500; }
+
+#content .article .clickbus {
+    position: absolute; 
+    top: 50%; transform: translateY(-50%); right:10%;
+    font-weight: 800; font-size: 38px;
+    opacity: 0; z-index: -1;
+}
+#content .article .clickbus.on { 
+    opacity: 1; z-index: 1;
+    animation: mouse infinite 1s; 
+}
+#content .article .bus { 
+    position: absolute; width: 300px; height: 724px;
+    bottom: 10%; right: 0; overflow: hidden;
+    transition: all 2s;
+}
+#content .article .bus.on { 
+    width: 1130px; height: 724px; overflow: hidden;
+}
+#content .article .bus .busbox { width: 1823px; height: 100%; }
+#content .article .bus .busbox img { 
+    width: 1823px; height: 100%;
+    position:relative; 
+}
+#content .article .bus .busbox .bustext {
+    position: absolute; top: 50%; left: 500px;
+    font-size: 24px; width: 460px;
+}
+#content .article .bus .busbox .bustext h2 { padding: 0; font-size: 40px; }
+#content .article .bus .busbox .bustext h2 span { font-weight: 800;}
+#content .article .bus .busbox .bustext p:nth-of-type(2) { padding: 20px 0;}
+
+
+/*----------------- 스프라이트 ----------------------- */
+.sprite { 
+    position: fixed; left: 100px; bottom: 100px;
+    width: 340px; height: 500px; overflow: hidden;
+    opacity: 0; z-index: -1;
+    transition: all 3s;
+}
+.sprite.on { 
+    opacity: 1; z-index: 1;
+}
+.sprite > .simgbox { 
+    width: 2040px; height: 500px;
+}
+.sprite > .simgbox > img { 
+    width: 2040px; height: 500px;
+}
+
+/*----------------- 마우스휠 ----------------------- */
+.scrollevt {
+    position: fixed; 
+    top: 50%; transform: translateY(-50%); right: 100px;
+    font-size: 50px;
+    opacity: 0; z-index: -1;
+    transition: all 3s;
+}
+.scrollevt.on { 
+    opacity: 1; z-index: 1;
+    animation: mouse infinite 1s 3s; 
+}
+@keyframes mouse {
+    from {transform: translateY(-50%); opacity: 0;}
+  
+    20%,
+    53%,
+    80%,
+    to {transform: translateY(-50%); opacity: 1;}
+  
+    40%,
+    43% {transform: translateY(-80%) scaleY(1.1); opacity: 1;}
+  
+    70% {transform: translateY(-65%) scaleY(1.05); opacity: 1;}
+  
+    90% {transform: translateY(-54%) scaleY(1.02); opacity: 1;} 
+  }
