@@ -51,16 +51,18 @@ $(window).on('scroll', function(){
     var scl = $(window).scrollLeft() 
     var snum = scl / 30
     var num = snum % 7
- 
 
     $('.scrollevt').removeClass('on')
 
-    if ( scl === ww ) {
-        draw (70, '.html')
-        draw (50, '.css')
-        draw (70, '.javascript')
-        draw (50, '.jquery')
-        draw (50, '.react')
+    if ( scl >= ww ) {
+        $('.article .skill').addClass('on')
+        if ( scl >= ww && $('.article .skill').hasClass('on') ){
+            draw (70, '.html')
+            draw (50, '.css')
+            draw (70, '.javascript')
+            draw (50, '.jquery')
+            draw (50, '.react')
+        }
     }
     if ( scl === (ww + 300) ) {
         $('.article .imgbox4 .design').addClass('on')
@@ -76,6 +78,7 @@ $(window).on('scroll', function(){
     if ( scl > ww*2 ) {
         $('#content .article .clickbus').addClass('on')
     }
+    console.log(ww, scl)
 })
 
 

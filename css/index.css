@@ -95,22 +95,23 @@ body {
 #content > .article {
    display: inline-block;
    position: relative; top: 0; left: 0;
-   width: 33.29%; height: 100%;
+   width: 33.27%; 
+   height: 100%;
    opacity: 0; z-index: -1;
    transition: all 3s;
 }
 #content > .article.on { opacity: 1; z-index: 1; }
 #content > .article .imgbox1 { 
     position: absolute;
-    top: 20%; right: 15%;
+    top: 20%; right: 80px;
 }
 #content > .article .imgbox2 { 
-    position: absolute;
-    top: 20%; left: 25%;
+    position: absolute; width: 668px;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
 }
 #content > .article .imgbox2 .txt1 {
     position: absolute; 
-    top: 70px; right: 50px;
+    top: 60px; right: 50px;
 }
 
 #content > .article  h1 {
@@ -131,7 +132,7 @@ body {
 #content > .article .imgbox2.on .txt1 > div:nth-of-type(1) { animation: fadeInUp 0.5s 1s both;}
 #content > .article .imgbox2.on .txt1 > div:nth-of-type(2) { animation: fadeInUp 0.5s 1.5s both;}
 #content > .article .imgbox2.on .txt1 > div:nth-of-type(3) { animation: fadeInUp 0.5s 2s both;}
-
+#content > .article .imgbox2 img:nth-of-type(1) { width: 100%; } 
 #content > .article .imgbox2 img:nth-of-type(2) {
     position: absolute;
     top: 23%; left: 46%;
@@ -155,55 +156,56 @@ body {
 /*----------------- 경력 ----------------------- */
 #content > .article .imgbox3 { 
     position: absolute;
-    top: 20%; left: 65%;
+    top: 20%; right: 80px;
 }
 #content > .article .imgbox4 { 
-    position: absolute;
-    top: 12%; left: 20%;
+    position: absolute; width: 788px;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
     color: #fff;
 }
 #content > .article .imgbox4 .skill {
-    position: absolute; width: 280px;
-    top: 50px; left: 100px;
+    position: absolute; width: 290px;
+    top: 30px; left: 80px;
 }
+#content > .article .imgbox4 h1 { padding-bottom: 10px;} 
 #content > .article .imgbox4 .skill h2{
     float: left; width: 35%;
-    font-size: 16px; padding-top: 20px;
+    font-size: 16px; padding-top: 18px;
 }
 #content > .article .imgbox4 .skill .score {
     float: right; width: 64%;
     border: 1px solid #fff;
-    margin-top: 20px;
+    margin-top: 18px;
 }
 #content > .article .imgbox4 .skill .score  .myscore { 
     width: 0%; height: 22px; background: #fac500;
     font-weight: 700; text-align: right; color: #001a2d;
 }
 #content > .article .imgbox4 .license {
-    position: absolute; width: 280px;
-    top: 50px; right: 100px;
+    position: absolute; width: 290px;
+    top: 30px; right: 80px;
 }
 #content > .article .imgbox4 .license p {
-    padding-top: 35px; border-bottom: 1px dotted #aaa;
+    padding-top: 30px; border-bottom: 1px dotted #aaa;
     font-weight: 700;
 }
 #content > .article .imgbox4 .license p span { float: right; font-weight: 100;}
 #content > .article .imgbox4 .design {
-    position: absolute; width: 380px;
-    top: 370px; right: 100px;
+    position: absolute; width: 300px;
+    bottom: 200px; left: 50%; transform: translate(-50%);
     color: #001a2d; font-weight: 900;
-    font-size: 24px; text-align: center;
+    font-size: 20px; text-align: center;
     vertical-align: middle;
 }
 #content > .article .imgbox4 .design p { 
-    width: 70px; height: 70px;
+    width: 55px; height: 55px;
     border: 2px solid #001a2d;
     display: inline-block;
     vertical-align: middle;
-    padding: 7px;
+    padding-top: 5px;
 }
 #content > .article .imgbox4 .design p:nth-child(1),
-#content > .article .imgbox4 .design p:nth-child(2) { font-size: 36px; padding: 11px;}
+#content > .article .imgbox4 .design p:nth-child(2) { font-size: 36px; padding: 5px;}
 
 #content > .article .imgbox4 .design.on p:nth-child(1) { animation: both bounce 0.5s;}
 #content > .article .imgbox4 .design.on p:nth-child(2) { animation: both bounce 0.5s 0.5s;}
@@ -215,12 +217,13 @@ body {
 /*----------------- 프로젝트 ----------------------- */
 #content .article .imgbox5 { 
     position: absolute;
-    top: 25%; right: 15%;
+    top: 20%; right: 120px;
 }
 #content .article .imgbox6 { 
-    position: absolute;
-    top: 20%; left: 15%;
+    position: absolute; width: 1033px;
+    top: 50%; left: 50%; transform: translate(-50%,-50%);
 }
+#content .article .imgbox6 img { width: 100%;}
 #content .article .slide-group {
     position: absolute; width: 100%; 
     top: 0; left: 0; right: 0; bottom: 0;
@@ -228,17 +231,17 @@ body {
 #content .article .slide-group .slide { width: 100%; height: 644px; }
 #content .article .slide-group h1 {
     position: absolute;
-    top: 45px; left: 50%; color: #fff;
+    top: 40px; left: 50%; color: #fff;
     transform: translateX(-50%);
 }
 #content .article .slide-group .img2 {
     position: absolute;
-    top: 158px; left: 173px;
+    top: 138px; left: 163px;
 }
 #content .article .slide-group .txt2 {
     position: absolute;
-    width: 450px;
-    top: 200px; right: 152px;
+    width: 430px;
+    top: 200px; right: 153px;
     background: #fff; 
     border-radius: 15px;
 }
@@ -260,7 +263,7 @@ body {
 #content .article .slide-group .txt2 h2 > a span { vertical-align: middle; }
 #content .article .slide-group .txt2 p { padding: 10px 20px; }
 #content .article .slide-group .slick-arrow { 
-    position: absolute; top: 45px; 
+    position: absolute; top: 42px; 
     background: none; border: none; color: #fff;
     font-size: 24px;
 }
@@ -278,9 +281,10 @@ body {
 }
 #content .article .slide-group .slick-dots li.slick-active > button { background: #fac500; }
 
+/* 버스 */
 #content .article .clickbus {
     position: absolute; 
-    top: 50%; transform: translateY(-50%); right:10%;
+    top: 50%; transform: translateY(-50%); right:15%;
     font-weight: 800; font-size: 38px;
     opacity: 0; z-index: -1;
 }
@@ -289,30 +293,30 @@ body {
     animation: mouse infinite 1s; 
 }
 #content .article .bus { 
-    position: absolute; width: 300px; height: 724px;
-    bottom: 10%; right: 0; overflow: hidden;
+    position: absolute; width: 300px; height: 600px;
+    bottom: 20px; right: 0; overflow: hidden;
     transition: all 2s;
 }
 #content .article .bus.on { 
-    width: 1130px; height: 724px; overflow: hidden;
+    width: 1000px; height: 600px; overflow: hidden;
 }
-#content .article .bus .busbox { width: 1823px; height: 100%; }
+#content .article .bus .busbox { width: 1000px; height: 600px; }
 #content .article .bus .busbox img { 
-    width: 1823px; height: 100%;
+    width: 1000px; height: 100%;
     position:relative; 
 }
 #content .article .bus .busbox .bustext {
     position: absolute; top: 50%; left: 500px;
-    font-size: 24px; width: 460px;
+    font-size: 18px; width: 460px;
 }
-#content .article .bus .busbox .bustext h2 { padding: 0; font-size: 40px; }
-#content .article .bus .busbox .bustext h2 span { font-weight: 800;}
+#content .article .bus .busbox .bustext h2 { padding: 0; font-size: 24px; }
+#content .article .bus .busbox .bustext h2 span { font-weight: 800; font-size: 28px;}
 #content .article .bus .busbox .bustext p:nth-of-type(2) { padding: 20px 0;}
 
 
 /*----------------- 스프라이트 ----------------------- */
 .sprite { 
-    position: fixed; left: 100px; bottom: 100px;
+    position: fixed; left: 80px; bottom: 30px;
     width: 340px; height: 500px; overflow: hidden;
     opacity: 0; z-index: -1;
     transition: all 3s;
