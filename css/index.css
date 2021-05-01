@@ -113,11 +113,26 @@ body {
     position: absolute; 
     top: 60px; right: 50px;
 }
-
-#content > .article  h1 {
+#content > .article h1 {
     font-size: 24px;
-    font-weight: 900;
+    font-weight: 900; display: inline-block;
+    position: relative; 
 }
+#content > .article h1 span { position: relative; z-index: 999;}
+#content > .article h1::before {
+    content: ''; z-index: 1;
+    position: absolute; bottom: 0; left: 50%; transform: translate(-50%);
+    background: rgba(250, 197, 0, 0.8); width: 105%; height: 8px;
+}
+/* #content > .article .imgbox2 .txt1::before,
+#content > .article .imgbox4 .skill::before,
+#content > .article .imgbox4 .license::before {
+    content: ''; z-index: 1;
+    position: absolute; top: 15px; left: 0;
+    background: rgba(250, 197, 0, 0.8); width: 132px; height: 8px;
+}
+#content > .article .imgbox4 .skill::before { width: 142px;}
+#content > .article .imgbox4 .license::before { width: 70px;} */
 #content > .article h2 {
     font-size: 18px;
     font-weight: 700; 
@@ -167,7 +182,7 @@ body {
     position: absolute; width: 290px;
     top: 30px; left: 80px;
 }
-#content > .article .imgbox4 h1 { padding-bottom: 10px;} 
+#content > .article .imgbox4 h1 { margin-bottom: 10px;} 
 #content > .article .imgbox4 .skill h2{
     float: left; width: 35%;
     font-size: 16px; padding-top: 18px;
@@ -284,7 +299,9 @@ body {
 /* 버스 */
 #content .article .clickbus {
     position: absolute; 
-    top: 50%; transform: translateY(-50%); right:15%;
+    top: 50%; transform: translateY(-50%); right:320px;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 10px 25px; border-radius: 50px;
     font-weight: 800; font-size: 38px;
     opacity: 0; z-index: -1;
 }
@@ -306,12 +323,39 @@ body {
     position:relative; 
 }
 #content .article .bus .busbox .bustext {
-    position: absolute; top: 50%; left: 500px;
-    font-size: 18px; width: 460px;
+    position: absolute; top: 285px; left: 400px;
+    width: 600px;  font-size: 40px; padding: 25px;
+    color: #00192f;
 }
-#content .article .bus .busbox .bustext h2 { padding: 0; font-size: 24px; }
-#content .article .bus .busbox .bustext h2 span { font-weight: 800; font-size: 28px;}
-#content .article .bus .busbox .bustext p:nth-of-type(2) { padding: 20px 0;}
+#content .article .bus .busbox .bustext > div > p { border-bottom: 1px dotted #001a2d;}
+#content .article .bus .busbox .bustext .result2 { 
+    padding-top: 25px;
+    font-weight: 800; font-size: 60px;
+}
+#content .article .bus .busbox .bustext .result2 span { color: #fff;}
+#content .article .bus .busbox .bustext .contact { 
+    font-size: 20px; font-weight: 500;
+}
+
+#content .article .bus .busbox .bustext .emph {
+    position: absolute; right: -200px; opacity: 0; z-index: -1; 
+    border: 3px solid #fac500; color: #fac500;
+    padding: 7px 40px 7px 10px; border-radius: 50px;
+    transition: all 0.5s;
+}
+#content .article .bus .busbox .bustext .lnr {
+    position: absolute; right: 30px; cursor: pointer;
+    background: #fac500; padding: 10px; border-radius: 50px;
+}
+#content .article .bus .busbox .bustext .ph { width: 196px; top: 25px; }
+#content .article .bus .busbox .bustext .em { width: 300px; bottom: 28px; }
+#content .article .bus .busbox .bustext .emph.on { right: 30px; opacity: 1; z-index: 1; }
+
+#content .article .bus .busbox .bustext .lnr-phone-handset { top: 25px; }
+#content .article .bus .busbox .bustext .lnr-envelope { bottom: 28px;}
+
+
+
 
 
 /*----------------- 스프라이트 ----------------------- */
@@ -335,11 +379,16 @@ body {
 .scrollevt {
     position: fixed; 
     top: 50%; transform: translateY(-50%); right: 100px;
-    font-size: 50px;
+    background: rgba(255, 255, 255, 0.7); padding: 10px 25px;
+    border-radius: 50px;
+    display: flex; align-items: center;
     opacity: 0; z-index: -1;
     transition: all 3s;
 }
+.scrollevt p { padding-left: 10px; font-size: 22px; }
+.scrollevt span { display: block;}
 .scrollevt.on { 
+    transition: all 1s;
     opacity: 1; z-index: 1;
     animation: mouse infinite 1s 3s; 
 }
