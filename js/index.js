@@ -1,30 +1,50 @@
-$('html').mousewheel(function(event, delta) {    
-    this.scrollLeft -= (delta * 30);        
-    event.preventDefault();    
- });  
+
+$('#intro').on('scroll touchmove mousewheel', function(e){
+    e.preventDefault();
+    e.stopPropagation(); 
+    return false;
+})
+ 
 
 $( '#intro .contentBG' ).on('click', function(){
     $(this).addClass('on')
     $('#intro .contentBG>p').eq(0).css({ display:'none'})
+    $('#intro .contentBG>p').eq(1).css({ display:'block'})
 })
+
 $('#intro .contentBG').css({
     transform:'translateZ( -4000px )',
     marginTop: '30%' ,
     marginLeft: '50%' ,
 })
-$('#intro .contentBG > img').on('click',function(){
+
+
+
+$('#intro .contentBG > p').eq(1).on('click',function(){
+    if ( !$('#content').hasClass('active') ) {
+        $('#content').addClass('active')
+    }
+    
+    $('#intro .contentBG> p').eq(1).css({ color:'transparent'})
     $('#intro .contentBG').css({
         transform:'translateZ( 0px )',
         marginTop: 0 ,
         marginLeft: 0 ,
     })
-    $('#intro .contentBG>p').eq(1).css({ display:'none'})
+    
     $('#content .article').addClass('on')
     if ($('#content .article').hasClass('on')){
         $('.article .imgbox2').addClass('on')
         $('.sprite').addClass('on')
         $('.scrollevt').addClass('on')
     }
+
+    $('#intro').off('scroll touchmove mousewheel'); 
+
+    $('html').mousewheel(function(event, delta) {    
+    this.scrollLeft -= (delta * 30);        
+    event.preventDefault();  
+    }) 
 })
 
 
@@ -51,8 +71,17 @@ $(window).on('scroll', function(){
     var scl = $(window).scrollLeft() 
     var snum = scl / 30
     var num = snum % 7
+    console.log(snum)
 
     $('.scrollevt').removeClass('on')
+    
+    if ( !$('#content').hasClass('active') ) {
+        $(window).scrollLeft(0) 
+    }
+
+    $('.contentBG img:nth-of-type(2)').css({
+        opacity: snum * 0.01 
+    })
 
     if ( scl >= ww && !$('.imgbox4 .skill').hasClass('on')) {
         $('.imgbox4 .skill').addClass('on')
@@ -76,7 +105,8 @@ $(window).on('scroll', function(){
     if ( scl > ww*2 ) {
         $('#content .article .clickbus').addClass('on')
     }
-    console.log(ww, scl)
+
+    
 })
 
 
