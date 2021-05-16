@@ -277,7 +277,7 @@ body::-webkit-scrollbar {
 #content .article .slide-group .slide:nth-child(2) h2 { background: #38aa75; }
 #content .article .slide-group .slide:nth-child(3) h2 { background: #8c7061; }
 #content .article .slide-group .slide:nth-child(4) h2 { background: #1aa74b; }
-#content .article .slide-group .slide:nth-child(5) h2 { background: #1aa74b; }
+#content .article .slide-group .slide:nth-child(5) h2 { background: #0058a3; }
 #content .article .slide-group .slide:nth-child(6) h2 { background: #ff5313; }
 #content .article .slide-group .txt2 h2 > a { 
     font-weight: 100; vertical-align: mi6dle;
@@ -310,16 +310,17 @@ body::-webkit-scrollbar {
     background: rgba(255, 255, 255, 0.7);
     padding: 10px 25px; border-radius: 50px;
     font-weight: 800; font-size: 38px;
-    opacity: 0; z-index: -1;
+    opacity: 1; transition: all 0.5s;
+    animation: mouse infinite 1s; cursor: pointer;
 }
 #content .article .clickbus.on { 
-    opacity: 1; z-index: 1;
-    animation: mouse infinite 1s; 
+    opacity: 0; transition: all 0.5s;
+
 }
 #content .article .bus { 
     position: absolute; width: 300px; height: 600px;
     bottom: 20px; right: 0; overflow: hidden;
-    transition: all 2s;
+    transition: all 1s; cursor: pointer;
 }
 #content .article .bus.on { 
     width: 1000px; height: 600px; 
@@ -329,6 +330,7 @@ body::-webkit-scrollbar {
     width: 1000px; height: 100%;
     position:relative; 
 }
+#content .article .bus .busbox .clickagain { position: absolute; top: 450px; left: 420px; }
 #content .article .bus .busbox .bustext {
     position: absolute; top: 285px; left: 400px;
     width: 600px;  font-size: 40px; padding: 25px;
