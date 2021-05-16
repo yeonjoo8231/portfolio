@@ -71,7 +71,8 @@ $(window).on('scroll', function(){
     var scl = $(window).scrollLeft() 
     var snum = scl / 30
     var num = snum % 7
-    console.log(snum)
+
+    console.log(scl)
 
     $('.scrollevt').removeClass('on')
     
@@ -102,9 +103,6 @@ $(window).on('scroll', function(){
             marginLeft: '0px'
         })
     }
-    if ( scl > ww*2 ) {
-        $('#content .article .clickbus').addClass('on')
-    }
 
     
 })
@@ -123,9 +121,12 @@ $("#content .slide-group").slick({
     nextArrow: '<button class="next"><span class="lnr lnr-chevron-right"></span></button>',
 })
 
-$('#content .article .bus').on('click',function(){
-    $(this).toggleClass('on')
-    $('#content .article .clickbus').removeClass('on')
+
+
+
+$('#content .article .clickbus').on('click',function(){
+    $('#content .article .bus').addClass('on')
+    $('#content .article .clickbus').toggleClass('on')
     if ( $('#content .article .bus').hasClass('on') ) {
     
         String.prototype.toKorChars = function() { 
@@ -239,6 +240,10 @@ $('#content .article .bus').on('click',function(){
     } else {
         $('.bustext .emph').removeClass('on')
     }
+})
+
+$('#content .article .bus').on('click',function(){
+    $(this).removeClass('on')
 })
 
 $('.bustext .lnr').on('mouseover',function(){
