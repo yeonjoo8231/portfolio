@@ -10,6 +10,7 @@ $( '#intro .contentBG' ).on('click', function(){
     $(this).addClass('on')
     $('#intro .contentBG>p').eq(0).css({ display:'none'})
     $('#intro .contentBG>p').eq(1).css({ display:'block'})
+    
 })
 
 $('#intro .contentBG').css({
@@ -24,6 +25,7 @@ $('#intro .contentBG > p').eq(1).on('click',function(){
     if ( !$('#content').hasClass('active') ) {
         $('#content').addClass('active')
     }
+    $('#nav').addClass('on')
     
     $('#intro .contentBG> p').eq(1).css({ color:'transparent'})
     $('#intro .contentBG').css({
@@ -47,6 +49,20 @@ $('#intro .contentBG > p').eq(1).on('click',function(){
     }) 
 })
 
+
+
+var arti2left = $('#article2').offset().left
+var arti3left = $('#article3').offset().left
+
+$('#nav > ul > li').on('click',function(){
+    var num = $(this).index()
+    $(this).addClass('on').siblings().removeClass('on')
+    switch(num) {
+        case 0 : $('html').animate ({ scrollLeft:0 },1000); break;
+        case 1 : $('html').animate ({ scrollLeft:arti2left },1000); break;
+        case 2 : $('html').animate ({ scrollLeft:arti3left },1000); break;
+    }
+})
 
 
 function draw ( jumsu, sname ) {
@@ -103,7 +119,6 @@ $(window).on('scroll', function(){
             marginLeft: '0px'
         })
     }
-
     
 })
 
