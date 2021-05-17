@@ -297,6 +297,7 @@ body::-webkit-scrollbar {
 }
 #content .article .slide-group .txt2 h2 > a span { vertical-align: middle; }
 #content .article .slide-group .txt2 p { padding: 10px 20px; }
+#content .article .slide-group .txt2 p:nth-of-type(1) { display: flex; justify-content: space-between; }
 #content .article .slide-group .slick-arrow { 
     position: absolute; top: 42px; 
     background: none; border: none; color: #fff;
