@@ -51,12 +51,12 @@ $('#intro .contentBG > p').eq(1).on('click',function(){
 
 
 
+var arti1left = $('#article1').offset().left
 var arti2left = $('#article2').offset().left
 var arti3left = $('#article3').offset().left
 
 $('#nav > ul > li').on('click',function(){
     var num = $(this).index()
-    $(this).addClass('on').siblings().removeClass('on')
     switch(num) {
         case 0 : $('html').animate ({ scrollLeft:0 },1000); break;
         case 1 : $('html').animate ({ scrollLeft:arti2left },1000); break;
@@ -95,11 +95,9 @@ $(window).on('scroll', function(){
     if ( !$('#content').hasClass('active') ) {
         $(window).scrollLeft(0) 
     }
-
     $('.contentBG img:nth-of-type(2)').css({
         opacity: snum * 0.01 
     })
-
     if ( scl >= ww && !$('.imgbox4 .skill').hasClass('on')) {
         $('.imgbox4 .skill').addClass('on')
         draw (85, '.html')
@@ -118,6 +116,15 @@ $(window).on('scroll', function(){
         $('#content .sprite img').css({
             marginLeft: '0px'
         })
+    }
+    if ( scl >= arti1left && scl < arti2left ) {
+        $('#nav > ul > li').eq(0).addClass('on').siblings().removeClass('on')
+    } 
+    if ( scl >= (arti2left - 100) && scl < arti3left ) {
+        $('#nav > ul > li').eq(1).addClass('on').siblings().removeClass('on')
+    } 
+    if ( scl >= (arti3left - 500) ) {
+        $('#nav > ul > li').eq(2).addClass('on').siblings().removeClass('on')
     }
     
 })
