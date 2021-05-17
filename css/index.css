@@ -18,6 +18,19 @@ body::-webkit-scrollbar {
     height: 100%; width: 100%;
     position: fixed; top: 0; left: 0;
 }
+
+
+#nav { 
+    position: fixed; top: 60px; left: 50%; 
+    transform: translate(-50%); z-index: 9999999;
+    width: 100%; opacity: 0; transition: all 1s;
+}
+#nav.on { opacity: 1; }
+#nav ul { display: flex; justify-content: space-between; text-align: center;}
+#nav ul li { font-size: 18px; width: 33.33%; cursor: pointer;}
+#nav ul li.on { font-weight: 600;}
+
+
 #intro { 
     perspective: 2000px; position: fixed; width: 100%; 
 }
@@ -102,7 +115,7 @@ body::-webkit-scrollbar {
 #content > .article {
    display: inline-block;
    position: relative; top: 0; left: 0;
-   width: 33.27%; 
+   width: 33.27%;
    height: 100%;
    opacity: 0; z-index: -1;
    transition: all 3s;
